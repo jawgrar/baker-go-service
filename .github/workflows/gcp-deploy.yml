@@ -11,9 +11,11 @@ jobs:
     name: Setup Gcloud Account
     runs-on: ubuntu-latest
     env:
-      name: Test
       IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
     steps:
+      - name: Print environment variable
+        run: echo "$IMAGE_NAME"
+
       - name: Login
         uses: google-github-actions/setup-gcloud@v0
         with:
